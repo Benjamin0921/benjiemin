@@ -1,0 +1,96 @@
+Reponsitory Name(仓库名称)：Test
+Description（仓库描述，用于介绍这仓库是干嘛的）：内容
+public：公开本仓库
+private：不公开本仓库
+Initialize this repository with a README：在仓库初始化一个README.md的文件。这个文件主要是写项目介绍的，我们一般都在里面写项目作者、项目的部署方式等等
+Add .gitgnore：选择这个仓库主要使用的语言
+Add a license：选择开源协议，一般都有MIT、EPL、GPL等等，详情的可以自己上百度搜！我们这里默认什么都不选！
+然后点create Reponsitory完成仓库创建！
+
+然后点击Clone or Download，会出现clone with HTTPS，复制里面的链接，等下要用到的！
+
+然后现在打开git工具！ 
+
+用命令行进入到我们要上传到仓库的项目文件所在位置！我们先在D盘创建一个TEST的文件夹！
+
+输入cd D:\TEST命令
+
+现在我们进到了TEST的文件夹了
+
+然后再输入git init命令来让仓库接管这个文件夹
+
+接管之后，TEST文件夹里会出现一个.git的隐藏文件，这文件夹里存放的是仓库信息和接管信息，我们一般不用管它，但是它不能删除或移动，否则后面就无法上传项目了！
+
+我们先模拟，在TEST文件夹里建一个UploadFile.txt的文件
+
+然后文件建好后，我们可以执行下一步操作
+
+输入git add .命令，这个命令是把文件都上传到文件缓存区
+
+然后输入提交指令：git commit -m "注释内容(打啥都行)"
+
+然后就会出现如下英文：
+[master (root-commit) 3c2e960] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 UploadFile.txt
+
+这时候说明我们已经成功把文件提交了
+
+然后我们就要用到刚才复制的链接啦，然后我们输入如下命令
+git remote add origin https://github.com/jackson0720/Test.git
+提交命令↑                       仓库地址↑
+
+
+最后就是提交文件缓存区中的文件到仓库啦
+执行git push -u origin master，意思是提交整个缓存区里的所有文件到仓库，push=推
+
+如果仓库存在了README.md文件或其他文件呢，我们是不能马上提交的，而是先要把仓库的内容通过git pull origin master指令把仓库的文件克隆到文件夹里，否则会出现如下报错：
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/jackson0720/Test.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+git pull origin master的意思是从源仓库的主分支中拉去文件到本地文件夹
+git pull origin master
+     拉    源仓库  主分支
+
+如果仓库存在文件必须先pull，否则就会造成刚才的报错
+pull完之后，我们就可以重新执行push了
+
+普通的push是没办法完美地把项目推送到仓库的，必须要强制推动，否则会造成报错
+
+如果上传成功，就会出现如下文字：
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 265 bytes | 265.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/jackson0720/Test.git
+ + 2762846...3c2e960 master -> master (forced update)
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+这个时候我们就可以去仓库看我们上传的文件了！
+
+大家可以看到UploadFile.txt文件已经上传到仓库了。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
